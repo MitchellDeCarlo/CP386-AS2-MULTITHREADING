@@ -39,14 +39,13 @@ int main(int argc, char *argv[])
 	int i = 0;
 	int index = 0;
 	int track = 0;
-	printf("%d\n",thr[1].lifetime);
 	while (getCurrentTime() < 26) // put a suitable condition here to run your program
 	{
 		if (getCurrentTime() >= thr[index].starttime)
 		{
 			pthread_create(&workers[i++], NULL, threadRun, &thr[index]);
 			track++;
-			if(track>= 4){
+			if(track>= count){
 				break;
 			}
 			int old = thr[index].starttime;
